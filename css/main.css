@@ -1,6 +1,11 @@
 /* reset all of the defaults to 0 so that you can write your OWN css*/
 /* don't rely on the built-in browser defaults */
 
+.hidden {
+  display: none;
+}
+
+
 * {
     border: 0;
     margin: 0;
@@ -10,12 +15,47 @@
 
 body {
     font-size: 16px;
-    background-color: black;
+    background: -webkit-linear-gradient(#168edf, #02080c);
+    height: 100%;
+    margin: 0;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
 
     font-family: Arial, Helvetica, sans-serif;
 
     color: white;
 }
+
+
+.hero-top {
+
+  filter: grayscale(100%);
+  transition: filter 0.2s;
+position: inherit;
+top: 10px;
+right: 18px;
+}
+
+.hero-top:hover{
+filter: grayscale(0%);
+
+}
+
+.container {
+  width: 1200px;
+  margin: 0 auto;
+  background-color: rgb(51, 50, 50);
+  box-shadow: 0 0 5px rgba(0,0,0,.2);
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(12, 75px);
+    grid-column-gap: 20px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
 
 header > h1 { text-align: center; padding: 8px;}
 
@@ -28,27 +68,51 @@ article {
     margin: 10px 12px;
 
     text-align: left;
+
+    background-color: #b9b9b9;
 }
 
-main { text-align: center;}
+main {
+  text-align: center;
+  background-color: #414141;
+  }
+
+  header h1 {
+    color: #168edf;
+  }
+
 
 article > h2 { color: grey; padding: 4px 8px;}
 
 article:first-of-type { border: 4px solid gray}
 
-#inprogress { border: 4px solid red;}
+#inprogress { border: 4px solid red;
+}
 #inprogress h2 {color: red;}
+
 
 #done { border: 4px solid green;}
 #done h2 { color: green;}
 
 ul { list-style-type: none; }
 
-ul li { padding: 6px 8px; text-transform: uppercase;}
+ul li { padding: 8px 8px; text-transform: uppercase;}
 
-.todo li:nth-child(odd) { background-color: rgba(255, 255, 255, 0.2);}
-.inprogress li:nth-child(odd) { background-color: rgba(255, 0, 0, 0.5);}
-.done li:nth-child(odd) { background-color: rgba(0, 255, 0, 0.5);}
+.todo li:nth-child(odd) {
+   background-color: rgba(255, 255, 255, 0.2);
+
+}
+.inprogress li:nth-child(odd) { 
+  background-color: rgba(255, 0, 0, 0.5);
+
+
+}
+
+.done li:nth-child(odd) { 
+  background-color: rgba(0, 255, 0, 0.5);
+
+
+}
 
 
 /* ::checkbox custom starts here */
@@ -61,18 +125,17 @@ input[type="checkbox"] {
 /* ::after rules go here -  */
 /* ::checkd itens get pseudo-class of "checked" - we can select only the 
 checkbox that have been checked and styles to them -  */
-input[type="checkbox"]:checked + span::after {
+.todo input[type="checkbox"]:checked + span::after {
   content: '\2713';
-  width: 25px;
-  height: 25px;
-  padding: 4px;
+  width: 13px;
+  height: 13px;
+  padding: 3px;
   border-radius: 50%;
   background-color: rgb(21, 215, 21);
   border: 4px solid rgb(21, 215, 21);
-  position: absolute;
-  top: 10px;
-  right: 18px;
-  font-size: 1.5em;
+  position: relative;
+  margin-left: 165px;
+  font-size: 1em;
 
   animation: fadeIn 0.7s;
 
@@ -80,34 +143,49 @@ input[type="checkbox"]:checked + span::after {
 
 
 
-
-/* ::checkbox custom starts here */
-
-/* ::this is an atribute selector: pick ONLY the imputs whose type is checkbox*/
-input[type="checkbox"] {margin-right: 8px; }
 
 /* ::after rules go here -  */
 /* ::checkd itens get pseudo-class of "checked" - we can select only the 
 checkbox that have been checked and styles to them -  */
-
-
-/*input[type="checkbox"]:checked + span::after {
+.inprogress input[type="checkbox"]:checked + span::after {
   content: '\2713';
-  width: 25px;
-  height: 25px;
-  padding: 4px;
+  width: 15px;
+  height: 13px;
+  padding: 3px;
   border-radius: 50%;
   background-color: rgb(21, 215, 21);
   border: 4px solid rgb(21, 215, 21);
-  position: inherit;
-  top: 10px;
-  right: 18px;
+  position: relative;
+  margin-left: 165px;
   font-size: 1em;
-  margin-left: 15px;
 
   animation: fadeIn 0.7s;
 
 }
-*/
 
+header h1 {
+  color: #168edf;
+}
 
+/* ::after rules go here -  */
+/* ::checkd itens get pseudo-class of "checked" - we can select only the 
+checkbox that have been checked and styles to them -  */
+.done input[type="checkbox"]:checked + span::after {
+  content: '\2713';
+  width: 15px;
+  height: 13px;
+  padding: 3px;
+  border-radius: 50%;
+  background-color: rgb(21, 215, 21);
+  border: 4px solid rgb(21, 215, 21);
+  position: relative;
+  margin-left: 165px;
+  font-size: 1em;
+
+  animation: fadeIn 0.7s;
+
+}
+
+header h1 {
+  color: #168edf;
+}
